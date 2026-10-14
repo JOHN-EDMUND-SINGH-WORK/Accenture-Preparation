@@ -1,79 +1,76 @@
+# Accenture Assessment Preparation
 
 <div align="center">
 
+### Learn · Practice · Improve
+
+**Preparing with purpose. Solving with logic. Growing with every problem.**
+
+<br>
+
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/Problem_Solving-6366F1?style=flat-square" />
+<img src="https://img.shields.io/badge/Placement_Prep-In_Progress-16A34A?style=flat-square" />
+
+<br><br>
+
+<img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="420" alt="Coding animation" />
+
+<br>
+
+</div>
+
 ---
 
-## 📌 About This Repository
+## About
 
-Welcome to my **Accenture Preparation Repository!**
+A dedicated space for my **Accenture placement assessment preparation**, containing coding questions, practice materials, problem-solving approaches, and Python implementations.
 
-This repository contains my daily practice materials, coding exercises, question references, and solutions as I prepare for the Accenture assessment.
+This repository documents my progress as I strengthen programming fundamentals, improve logical thinking, and develop efficient solutions.
 
-🎯 **My objectives:**
-
-- 🧠 Strengthen logical and analytical thinking.
-- 💡 Improve problem-solving skills.
-- 🐍 Practice Python programming.
-- ⚡ Write efficient and readable code.
-- 📈 Track my learning and progress consistently.
-
-## 📂 Repository Structure
+## Repository Structure
 
 ```text
 Accenture/
-│
-├── 📁 Day_1/
-│   ├── 📄 Day_1.pdf
-│   ├── 📓 Day_1.ipynb
-│   ├── 🖼️ Q1.png
-│   ├── 🖼️ Q2.png
-│   ├── 🖼️ Q3.jpeg
-│   └── 🖼️ Q4.jpeg
-│
-├── 📁 Day_2/
-│
-└── 📄 README.md
+├── Coding_Question.ipynb
+├── Q1.png
+├── Q2.png
+└── README.md
 ```
 
-## 🗓️ Daily Practice
+## Practice Log
 
-### 🔹 Day 01 — Coding Practice
+| Resource | Description |
+|---|---|
+| `Coding_Question.ipynb` | Python coding practice and solutions |
+| `Q1.png` | Coding question reference |
+| `Q2.png` | Coding question reference |
 
-| Resource             | Description                         |
-| -------------------- | ----------------------------------- |
-| 📄`Day_1.pdf`      | Practice material and questions     |
-| 📓`Day_1.ipynb`    | Python coding practice              |
-| 🖼️`Q1` – `Q4` | Question screenshots and references |
+*More questions, notebooks, and practice materials will be added as I progress.*
 
-**What I'm focusing on:**
+## Focus Areas
 
-- 🔍 Understanding problem statements.
-- 🧩 Developing logical approaches.
-- 💻 Implementing solutions in Python.
-- 🛠️ Debugging and testing code.
+- **Problem Solving** — Break problems into smaller, manageable steps.
+- **Python Programming** — Practice logic, data structures, and implementation.
+- **Code Optimization** — Understand time and space complexity.
+- **Debugging** — Identify errors and improve solution accuracy.
+- **Consistency** — Practice regularly and learn from mistakes.
 
-### 🔹 Day 02 — Coming Soon
+## Tech Stack
 
-🚧 More practice questions, coding exercises, and solutions will be added as I continue preparing.
-
-## 🛠️ Tech Stack
-
-<p>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white" />
-  <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white" />
-  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" />
-  <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" />
-</p>
-
-## 🎯 Learning Goals
-
-- ✅ Build strong programming fundamentals.
-- 🧠 Improve logical reasoning and coding accuracy.
-- ⚡ Solve problems with better time and space complexity.
-- 🔄 Learn from mistakes and refine solutions.
-- 📚 Maintain consistent daily practice.
+<div align="left">
+<img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+<img src="https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white" />
+<img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" />
+<img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" />
+</div>
 
 ---
 
 <div align="center">
+
+### One Problem at a Time.
+
+*Building stronger logic through consistent practice.*
+
+</div>
