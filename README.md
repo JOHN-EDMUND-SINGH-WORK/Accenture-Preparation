@@ -14,6 +14,90 @@ This repository documents my progress as I strengthen programming fundamentals, 
 ## Repository Structure
 
 <!-- TREE_START -->
+```text
+Accenture/
+├── Day_1/
+│   ├── Day_1 .pdf
+│   ├── Day_1.ipynb
+│   ├── Q1.png
+│   ├── Q2.png
+│   ├── Q3.jpeg
+│   └── Q4.jpeg
+├── Day_2/
+│   ├── Day_2.ipynb
+│   ├── Day_2.pdf
+│   ├── Q1.png
+│   ├── Q1_solution.png
+│   └── Q2.png
+├── Day_3/
+│   ├── Day_3.ipynb
+│   ├── Q2.png
+│   ├── Q6.png
+│   └── Q13.png
+├── Day_4/
+│   ├── 1.png
+│   ├── 2.png
+│   ├── 3.png
+│   ├── 4.png
+│   ├── 5.png
+│   ├── 6.png
+│   ├── 7.png
+│   ├── 8.png
+│   ├── 9.png
+│   ├── 10.png
+│   ├── 11.png
+│   ├── 12.png
+│   ├── 13.png
+│   └── Day_4.ipynb
+├── Day_5/
+│   ├── 1.jpeg
+│   ├── 2.jpeg
+│   ├── 3.jpeg
+│   ├── 4.jpeg
+│   ├── 5.jpeg
+│   ├── 6.jpeg
+│   ├── 7.jpeg
+│   ├── 8.jpeg
+│   ├── 9.jpeg
+│   ├── 10.jpeg
+│   ├── 11.jpeg
+│   ├── 12.jpeg
+│   ├── 13.jpeg
+│   ├── 14.jpeg
+│   ├── 15.jpeg
+│   ├── 16.jpeg
+│   ├── 17.jpeg
+│   ├── 18.jpeg
+│   ├── 19.jpeg
+│   ├── 20.jpeg
+│   ├── 21.jpeg
+│   ├── 22.jpeg
+│   ├── 23.jpeg
+│   ├── 24.jpeg
+│   ├── 25.jpeg
+│   └── 26.jpeg
+├── Day_6/
+│   ├── 1.jpeg
+│   ├── 2.jpeg
+│   ├── 3.jpeg
+│   ├── 4.jpeg
+│   ├── 5.jpeg
+│   ├── 6.jpeg
+│   ├── 7.jpeg
+│   ├── 8.jpeg
+│   ├── 9.jpeg
+│   ├── 10.jpeg
+│   ├── 11.jpeg
+│   ├── 12.jpeg
+│   ├── 13.jpeg
+│   ├── 14.jpeg
+│   ├── 15.jpeg
+│   ├── 16.jpeg
+│   └── 17.jpeg
+├── rought.py
+├── TREE.md
+└── tree.py
+```
 <!-- TREE_END -->
 
 
