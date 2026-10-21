@@ -1,22 +1,17 @@
+
 #!/usr/bin/env python3
-"""
-Generate a readable folder/file tree for this repository.
+"""Generate a naturally sorted repository tree inside README.md."""
 
-Usage:
-    python tree.py
-    python tree.py --output TREE.md
-    python tree.py --root "C:\\path\\to\\Accenture" --output TREE.md
-
-By default, the script scans the folder containing tree.py, prints the tree,
-and saves a copy to TREE.md.
-"""
-
-from __future__ import annotations
-
-import argparse
 from pathlib import Path
+import re
 
-DEFAULT_IGNORES = {
+ROOT = Path(__file__).resolve().parent
+README = ROOT / "README.md"
+
+START_MARKER = "<!-- TREE_START -->"
+END_MARKER = "<!-- TREE_END -->"
+
+IGNORED = {
     ".git",
     ".venv",
     "venv",
@@ -24,85 +19,72 @@ DEFAULT_IGNORES = {
     ".idea",
     ".vscode",
     "node_modules",
-    "target",
     "dist",
+    "build",
 }
 
+def natural_key(item: Path):
+    """Sort numbered filenames naturally: 2.png before 10.png."""
+    return [
+        int(part) if part.isdigit() else part.lower()
+        for part in re.split(r"(\d+)", item.name)
+    ]
 
-def build_tree(root: Path, ignore_names: set[str]) -> str:
-    """Return a Unicode tree of root's folders and files."""
-    lines = [f"{root.name}/"]
+def build_tree(folder: Path, prefix: str = "") -> list[str]:
+    """Build a readable tree of files and folders."""
+    items = [
+        item for item in folder.iterdir()
+        if item.name not in IGNORED
+        and item.name != "README.md"
+    ]
 
-    def walk(folder: Path, prefix: str = "") -> None:
-        try:
-            entries = [
-                item for item in folder.iterdir()
-                if item.name not in ignore_names
-            ]
-            entries.sort(key=lambda item: (item.is_file(), item.name.lower()))
-        except PermissionError:
-            lines.append(f"{prefix}└── [Permission denied]")
-            return
+    items.sort(key=lambda item: (item.is_file(), natural_key(item)))
 
-        for index, item in enumerate(entries):
-            is_last = index == len(entries) - 1
-            connector = "└── " if is_last else "├── "
-            lines.append(f"{prefix}{connector}{item.name}{'/' if item.is_dir() else ''}")
+    lines = []
 
-            if item.is_dir():
-                extension = "    " if is_last else "│   "
-                walk(item, prefix + extension)
+    for index, item in enumerate(items):
+        is_last = index == len(items) - 1
+        connector = "└── " if is_last else "├── "
+        suffix = "/" if item.is_dir() else ""
 
-    walk(root)
-    return "\n".join(lines)
+        lines.append(f"{prefix}{connector}{item.name}{suffix}")
 
+        if item.is_dir():
+            extension = "    " if is_last else "│   "
+            lines.extend(build_tree(item, prefix + extension))
 
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Automatically generate a repository folder tree."
+    return lines
+
+def main():
+    content = README.read_text(encoding="utf-8")
+
+    if START_MARKER not in content or END_MARKER not in content:
+        raise ValueError(
+            "README.md must contain TREE_START and TREE_END markers."
+        )
+
+    if content.index(START_MARKER) >= content.index(END_MARKER):
+        raise ValueError("Tree markers are in the wrong order.")
+
+    tree_lines = [ROOT.name + "/", *build_tree(ROOT)]
+    tree_block = "```text\n" + "\n".join(tree_lines) + "\n```"
+
+    pattern = re.compile(
+        re.escape(START_MARKER) + r".*?" + re.escape(END_MARKER),
+        re.DOTALL,
     )
-    parser.add_argument(
-        "--root",
-        type=Path,
-        default=Path(__file__).resolve().parent,
-        help="Repository folder to scan (defaults to the folder containing tree.py).",
+
+    replacement = (
+        START_MARKER + "\n" + tree_block + "\n" + END_MARKER
     )
-    parser.add_argument(
-        "--output",
-        type=Path,
-        default=Path("TREE.md"),
-        help="File to save the tree to (default: TREE.md).",
-    )
-    parser.add_argument(
-        "--include-hidden",
-        action="store_true",
-        help="Include hidden files/folders, except the default ignored folders.",
-    )
-    args = parser.parse_args()
 
-    root = args.root.expanduser().resolve()
-    if not root.is_dir():
-        parser.error(f"Folder does not exist: {root}")
+    updated = pattern.sub(lambda _: replacement, content, count=1)
 
-    ignored = set(DEFAULT_IGNORES)
-    if not args.include_hidden:
-        # Hidden entries are skipped unless they are explicitly useful.
-        hidden_names = {
-            item.name for item in root.iterdir()
-            if item.name.startswith(".")
-        }
-        ignored.update(hidden_names)
-
-    tree_text = build_tree(root, ignored)
-    print(tree_text)
-
-    output_path = args.output
-    if not output_path.is_absolute():
-        output_path = root / output_path
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path.write_text("```text\n" + tree_text + "\n```\n", encoding="utf-8")
-    print(f"\nTree saved to: {output_path}")
-
+    if updated != content:
+        README.write_text(updated, encoding="utf-8")
+        print("README.md repository structure updated!")
+    else:
+        print("README.md repository structure is already up to date.")
 
 if __name__ == "__main__":
     main()
